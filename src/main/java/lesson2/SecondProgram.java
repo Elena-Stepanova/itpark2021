@@ -1,49 +1,29 @@
 package lesson2;
 
-public class SecondProgram {
+import static java.lang.Math.sqrt;
 
-    int arg1, arg2;
+public class secondProgram {
+
+    double h, s1, s2;
 
     public static void main(String[] args) {
-        System.out.println("Привет, мир123!");
 
-        long summa = summa(3, 5);
-        System.out.println(summa);
-        long otherSumma = summa(5, 5);
-        System.out.println(otherSumma);
-        long yetAnotherSumma = summa(2, 18);
-        System.out.println(yetAnotherSumma);
+        System.out.println("Рассчитаем объем усечённой пирамиды,\n" +
+                " \n" +
+                "где:\n " +
+                "h = 9 см - высота \n" +
+                "s1 = 25 кв.см, s2 = 16 кв.см - площади соответственно нижнего и верхнего оснований");
+        double h = 9;
+        double s1 = 25;
+        double s2 = 16;
 
-        long resultOfMinus = minus(2, 18);
-        System.out.println(resultOfMinus);
-
-        long result = multiplyAndSumma(5);
-        System.out.println(result);
+        double result = vol (h,s1,s2);
+        System.out.println("\n" +
+                "Объем пирамиды равен " + result + " куб.см");
     }
 
-    /**
-     * Метод будет складывать два аргумента и возвращать результат этой операции
-     *
-     * @param arg1 первый аргумент
-     * @param arg2 второй аргумент
-     * @return результат сложения двух чисел
-     */
-    public static long summa(int arg1, int arg2) {
-         /* В этой переменной будет храниться результат сложения двух чисел
-         Результат вычисления должен быть совместим по типу с аргументами,
-         над которыми осуществляется операция сложения
-         Еще одна строка */
-        int result = arg1 + arg2;
-        return result;
-    }
-
-    public static long minus(int arg1, int arg2) {
-        return arg1 - arg2;
-    }
-
-    public static long multiplyAndSumma(int arg1) {
-        int result = 3 * arg1 + 15;
-        result = result - 38;
-        return result;
+        public static double vol(double h, double s1, double s2) {
+            double vol = h/3 * (s1 + sqrt(s1*s2) + s2);
+            return vol;
     }
 }
